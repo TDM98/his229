@@ -1,0 +1,911 @@
+﻿<UserControl
+    x:Class="aEMR.Consultation.Views.MedicalRecordCover.MedicalRecordCoverViewSample1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:AxControls="clr-namespace:aEMR.Controls;assembly=aEMR.Controls"
+    xmlns:Resources="clr-namespace:eHCMSLanguage;assembly=aEMRLanguage"
+    xmlns:cal="http://www.caliburnproject.org"
+    xmlns:commonconverters="clr-namespace:aEMR.Common.Converters;assembly=aEMR.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+    d:DesignHeight="1200"
+    d:DesignWidth="1050"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <Resources:eHCMSResources x:Key="eHCMSResources" />
+        <commonconverters:EnumConverter x:Key="EnumConverterObj" />
+        <commonconverters:EnumValueToStringConverter x:Key="EnumValueToStringConverter" />
+        <commonconverters:StringFormatConverter x:Key="StringFormatConverter" />
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+        <commonconverters:BooleanToVisibilityNotConverter x:Key="BooleanToNotVisibility" />
+        <commonconverters:InverseBoolConverter x:Key="InverseBoolConverter" />
+    </UserControl.Resources>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <TextBlock
+                x:Name="TitleForm"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Style="{StaticResource MainFrame.TextBlock.Header.01}"
+                Text="{Binding TitleForm, ConverterParameter=Upper, Mode=OneWay, Converter={StaticResource StringFormatConverter}}" />
+            <Grid
+                x:Name="LayoutRoot"
+                Grid.Row="2"
+                Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="150" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+                <GroupBox
+                    Grid.Row="1"
+                    Header="I.HÀNH CHÍNH"
+                    Style="{StaticResource MainFrame.BlueGroupBox}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,5,192,5"
+                            VerticalAlignment="Center"
+                            Text="1.Họ và tên(In hoa):" Grid.ColumnSpan="2" />
+                        <TextBox
+                            Grid.Row="1"
+                            Margin="22,2,82,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.ColumnSpan="3" Grid.Column="1" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            Margin="0,5,0,5"
+                            VerticalAlignment="Center"
+                            Text="2. Sinh ngày:" Grid.ColumnSpan="2" />
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="4"
+             
+                            Margin="72,2,0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.FullName, Mode=TwoWay}" Grid.ColumnSpan="2" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="7"
+                            Margin="10,5,61,5"
+                            VerticalAlignment="Center"
+                            Text="Tuổi:" />
+                        <TextBox
+                            Grid.Row="1"
+                            Grid.Column="7"
+                            Margin="45,2,0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.FullName, Mode=TwoWay}" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="3.Giới" />
+                        <TextBox
+                            Grid.Row="2"
+                            Margin="55,2,0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.FullName, Mode=TwoWay}" Grid.ColumnSpan="2" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="4.Dân tộc:" />
+                        <TextBox
+                            Grid.Row="3"
+                            Margin="55,2,0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" Grid.ColumnSpan="3" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="4"
+                            Margin="0,5,0,5"
+                            VerticalAlignment="Center"
+                            Text="5.Ngoại kiều:" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="4"
+                            Margin="72,2,0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}"
+                            Grid.ColumnSpan="3"/>
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="6.Địa chỉ:" />
+                        <TextBox
+                            Grid.Row="4"
+                            Margin="55,2,10,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" Grid.ColumnSpan="8" />
+
+                        <TextBlock
+                            Grid.Row="6"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="7.Họ tên bố" />
+                        <TextBox
+                            Grid.Row="6"
+                            Margin="69,2,20,2"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" Grid.ColumnSpan="2" 
+                            TextWrapping="Wrap"
+                            MaxLength="30"/>
+
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Margin="193,5,5,5"
+                            VerticalAlignment="Center"
+                            Text="Trình độ VH của bố" Grid.ColumnSpan="2"
+                            TextWrapping="Wrap"/>
+                        <TextBox
+                            Grid.Row="6"
+                            Grid.Column="3"
+                            Margin="0,2"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" HorizontalAlignment="Left" Width="129" 
+                            TextWrapping="Wrap"
+                            MaxLength="20"/>
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="3"
+                            Margin="134,5,73,5"
+                            VerticalAlignment="Center"
+                            Text="Họ tên mẹ" Grid.ColumnSpan="2" 
+                            TextWrapping="Wrap"/>
+                        <TextBox
+                            Grid.Row="6"
+                            Grid.Column="3"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" Margin="193,0,26,0" Grid.ColumnSpan="3" 
+                            TextWrapping="Wrap"
+                            MaxLength="30"/>
+                        <TextBlock
+                            Grid.Row="6"
+                            Grid.Column="5"
+                            Margin="80,5,95,5"
+                            VerticalAlignment="Center"
+                            Text="Trình độ VH của mẹ" Grid.ColumnSpan="3" />
+                        <TextBox
+                            Grid.Row="6"
+                            Grid.Column="6"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" Margin="91,0,0,0" Grid.ColumnSpan="2"
+                            TextWrapping="Wrap"
+                            MaxLength="20"/>
+
+                        <TextBlock
+                            Grid.Row="7"
+                            Margin="0,5,192,5"
+                            VerticalAlignment="Center"
+                            Text="Nghề nghiệp của bố" Grid.ColumnSpan="2"  />
+                        <TextBox
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Margin="22,2,5,2"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" 
+                            Grid.ColumnSpan="3"
+                            TextWrapping="Wrap"
+                            MaxLength="50"/>
+                        <TextBlock
+                            Grid.Row="7"
+                            Grid.Column="4"
+                            Margin="0,5,91,5"
+                            VerticalAlignment="Center"
+                            Text="Nghề nghiệp của mẹ" Grid.ColumnSpan="2" />
+                        <TextBox
+                            Grid.Row="7"
+                            Grid.Column="5"
+                            Margin="15,2,0,2"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" Grid.ColumnSpan="3"
+                            TextWrapping="Wrap"
+                            MaxLength="50"/>
+
+                        <TextBlock
+                            Grid.Row="8"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="8. Đối tượng" />
+                        <StackPanel
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Margin="0,5,0,5"
+                            IsEnabled="{Binding IsDialogViewObject, Converter={StaticResource InverseBoolConverter}}"
+                            Orientation="Horizontal">
+                            <CheckBox Width="91">
+                                <TextBlock>
+				                    <Run>1.BHYT</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock>
+				                    <Run>2.Thu phí</Run>
+                                </TextBlock>
+                            </CheckBox>
+                        </StackPanel>
+
+                        <TextBlock
+                            Grid.Row="9"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="9.BHYT giá trị đến" />
+                        <TextBox
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            Margin="0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" />
+                        <TextBlock
+                            Grid.Row="9"
+                            Grid.Column="2"
+                            Margin="29,5,5,5"
+                            VerticalAlignment="Center"
+                            Text="Số thẻ BHYT" />
+                        <TextBox
+                            Grid.Row="9"
+                            Grid.Column="3"
+                            Margin="0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" />
+
+                        <TextBlock
+                            Grid.Row="10"
+                            Margin="0,5,67,5"
+                            VerticalAlignment="Center"
+                            Text="10. Họ tên địa chỉ người nhà khi cần báo tin:" Grid.ColumnSpan="2" />
+                        <TextBox
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            Margin="135,2,10,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" Grid.ColumnSpan="7" />
+                        <TextBlock
+                            Grid.Row="11"
+                            Grid.Column="6"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="Số điện thoại:" />
+                        <TextBox
+     
+                            Grid.Row="11"
+                            Grid.Column="7"
+                            Margin="0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.AgeString, Mode=TwoWay}" />
+
+                        <StackPanel
+                            Grid.Row="3"
+                            Grid.Column="5"
+                            Grid.ColumnSpan="4"
+                            Orientation="Horizontal" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="3"
+                    Height="Auto"
+                    Header="II.QUẢN LÝ NGƯỜI BỆNH"
+                    IsEnabled="{Binding IsCanSave, Mode=OneWay}"
+                    Style="{StaticResource MainFrame.BlueGroupBox}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="3*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Column="4"
+                            Orientation="Horizontal"
+                            Visibility="{Binding IsTransferTo, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+                        <Grid Grid.Column="4" Visibility="{Binding IsTransferTo_copy, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <TextBlock
+                            Grid.Row="0"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="11.Vào viện:" />
+                        <TextBox
+                            Grid.Row="0"
+                            Margin="93,2,0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.ColumnSpan="2" />
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="6,8,5,8"
+                            VerticalAlignment="Center"
+
+                            Text="13.Nơi giới thiệu:" />
+                        <StackPanel
+                            Grid.Row="0"
+                            Grid.Column="3"
+                            Grid.ColumnSpan="2"
+                            Margin="0,5,0,5"
+                            IsEnabled="{Binding IsDialogViewObject, Converter={StaticResource InverseBoolConverter}}"
+                            Orientation="Horizontal">
+                            <CheckBox>
+                                <TextBlock Width="83">
+				                    <Run>1.Cơ quan y tế</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox Width="70">
+                                <TextBlock>
+				                    <Run>2.Tự đến</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock>
+				                    <Run>3.Khác</Run>
+                                </TextBlock>
+                            </CheckBox>
+                        </StackPanel>
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0,5,330,5"
+                            VerticalAlignment="Center"              
+                            Text="- Vào viện do bệnh này lần thứ:" Grid.ColumnSpan="2" />
+                        <TextBox
+        
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Margin="0,2,222,2"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" HorizontalAlignment="Right" Width="103" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="12.Trực tiếp vào:" />
+                        <TextBox
+                            Grid.Row="1"
+                            Margin="93,2,0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.ColumnSpan="2" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="14.Vào khoa:" />
+                        <TextBox
+                            Grid.Row="2"
+                            Margin="93,2,0,2"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.ColumnSpan="2" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="5,8,5,8"
+                            VerticalAlignment="Center"
+                            Text="16.Chuyển viện:" />
+                        <StackPanel
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Grid.ColumnSpan="2"
+                            Margin="0,5,0,5"
+                            IsEnabled="{Binding IsDialogViewObject, Converter={StaticResource InverseBoolConverter}}"
+                            Orientation="Horizontal">
+                            <CheckBox>
+                                <TextBlock Width="80">
+				                    <Run>1.Tuyén trên</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock Width="80">
+				                    <Run>2.Tuyén dưới</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock Width="80">
+				                    <Run>3.Chuyên khoa</Run>
+                                </TextBlock>
+                            </CheckBox>
+                        </StackPanel>
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="2"
+                            Margin="5,4,5,4"
+                            VerticalAlignment="Center"
+                            Text="- Chuyển đến:" />
+                        <TextBox
+                            Grid.Row="3"
+                            Grid.Column="3"
+                            Margin="0,2,0,31"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.RowSpan="2" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="15.Chuyển khoa" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Margin="0,2,0,0"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}"/>
+                        <TextBox
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            Margin="0,2,0,0"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}"/>
+                        <TextBox
+                            Grid.Row="6"
+                            Grid.Column="1"
+                            Margin="0,2,0,0"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}"/>
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="2"
+                            Margin="5,8,5,8"
+                            VerticalAlignment="Center"
+                            Text="17.Ra viện" />
+                        <TextBox
+                            Grid.Row="5"
+                            Grid.Column="2"
+                            Margin="74,2,0,0"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.RowSpan="2" Grid.ColumnSpan="2" />
+
+                        <TextBlock
+                            Grid.Row="7"
+                            Grid.Column="2"
+                            Margin="5,8,361,8"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Text="18. Tổng số ngày điều trị" Grid.ColumnSpan="2" Width="139" />
+                        <TextBox
+                            Grid.Row="7"
+                            Grid.Column="3"
+                            Margin="23,2,2,0"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" />
+                    </Grid>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="4"
+                    Height="Auto"
+                    Header="III.CHẨN ĐOÁN"
+                    IsEnabled="{Binding IsCanSave, Mode=OneWay}"
+                    Style="{StaticResource MainFrame.BlueGroupBox}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="2*" />
+
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Column="4"
+                            Orientation="Horizontal"
+                            Visibility="{Binding IsTransferTo, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+                        <Grid Grid.Column="4" Visibility="{Binding IsTransferTo_copy, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <TextBlock
+                            Grid.Row="0"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="19.Nơi chuyển đến:" />
+                        <TextBox
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Margin="0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="20.KKB, Cấp cứu:" />
+                        <TextBox
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="21.Khi vào khoa điều trị:" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Margin="0,2"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" />
+                        <StackPanel
+                            Grid.Row="6"
+                            Grid.ColumnSpan="2"
+                            Margin="0,5,0,5"
+                            IsEnabled="{Binding IsDialogViewObject, Converter={StaticResource InverseBoolConverter}}"
+                            Orientation="Horizontal">
+                            <CheckBox Width="91">
+                                <TextBlock>
+				                    <Run>Thủ thuật</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock>
+				                    <Run>Phẫu thuật</Run>
+                                </TextBlock>
+                            </CheckBox>
+                        </StackPanel>
+                        <TextBlock
+                            Grid.Column="2"
+                            Margin="61,6,5,5"
+                            VerticalAlignment="Center"
+                            
+                            Text="22.Ra viện:" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            Margin="61,5,5,5"
+                            VerticalAlignment="Center"
+                            Text="+ Bệnh chính:" />
+
+                        <TextBox
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Margin="0,2,0,0"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.RowSpan="2" />
+
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="2"
+                            Margin="61,5,5,5"
+                            VerticalAlignment="Center"
+                            Text="+ Bệnh kèm theo" />
+                        <TextBox
+                            Grid.Row="4"
+                            Grid.Column="3"
+                            Margin="0,2,0,0"
+                            IsReadOnly="True"
+                            Style="{StaticResource MainFrame.TextBox}"
+                            Text="{Binding CurrentTreatmentProcess.CurPatientRegistration.Patient.PatientCode, Mode=TwoWay}" Grid.RowSpan="2" />
+                        <StackPanel
+                            Grid.Row="6"
+                            Grid.Column="2"
+                            Grid.ColumnSpan="2"
+                            Margin="61,5,0,5"
+                            IsEnabled="{Binding IsDialogViewObject, Converter={StaticResource InverseBoolConverter}}"
+                            Orientation="Horizontal">
+                            <CheckBox Width="91">
+                                <TextBlock>
+				                    <Run>Tai biến</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock>
+				                    <Run>Biến chứng</Run>
+                                </TextBlock>
+                            </CheckBox>
+                        </StackPanel>
+
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox
+                    Grid.Row="5"
+                    Height="Auto"
+                    Header="IV.TRÌNH TRẠNG RA VIỆN"
+                    IsEnabled="{Binding IsCanSave, Mode=OneWay}"
+                    Style="{StaticResource MainFrame.BlueGroupBox}">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"  />
+                            <RowDefinition Height="Auto"  />
+
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                            <ColumnDefinition Width="1*" />
+                        </Grid.ColumnDefinitions>
+                        <StackPanel
+                            Grid.Column="4"
+                            Orientation="Horizontal"
+                            Visibility="{Binding IsTransferTo, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+                        <Grid Grid.Column="4" Visibility="{Binding IsTransferTo_copy, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                        </Grid>
+                        <TextBlock
+                            Grid.Row="0"
+                            Margin="0,4,126,5"
+                            VerticalAlignment="Center"
+                            Text="23.Kết quả điều trị:" />
+                        <ComboBox
+                            Height="24"
+                            MinWidth="220"
+                            Grid.Row="0"
+                            HorizontalContentAlignment="Stretch"
+                            VerticalContentAlignment="Stretch"
+                            cal:Message.Attach="[Event SelectionChanged]=[Action cboDepartments_SelectionChanged($source,$eventArgs)]"
+                            DisplayMemberPath="DeptLocation.RefDepartment.DeptName"
+                            IsEnabled="{Binding gIsUpdate, Converter={StaticResource InverseBoolConverter}}"
+                            ItemsSource="{Binding InPatientDeptDetails}"
+                            SelectedItem="{Binding SelectedInPatientDeptDetail, Mode=TwoWay}"
+                            Style="{StaticResource MainFrame.ComboBox}"
+                            TabIndex="3" Grid.ColumnSpan="2" Margin="109,2,15,1" />
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="24.Giải phẫu bệnh:" />
+
+                        <StackPanel
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Margin="0,5,0,5"
+                            IsEnabled="{Binding IsDialogViewObject, Converter={StaticResource InverseBoolConverter}}"
+                            Orientation="Horizontal">
+                            <CheckBox Width="91">
+                                <TextBlock>
+				                    <Run>1.Lành tính</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock>
+				                    <Run>2.Nghi ngờ</Run>
+                                </TextBlock>
+                            </CheckBox>
+                            <CheckBox>
+                                <TextBlock>
+				                    <Run>3.Ác tính</Run>
+                                </TextBlock>
+                            </CheckBox>
+                        </StackPanel>
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="3"
+                            Margin="0,0,5,0"
+                            VerticalAlignment="Center"
+                            Text="Ngày ký trưởng khoa" />
+                    </Grid>
+
+                </GroupBox>
+                <StackPanel
+                    Grid.Row="6"
+                    Margin="0,5,0,0"
+                    HorizontalAlignment="Right"
+                    IsEnabled="{Binding IsCanSave, Mode=OneWay}"
+                    Orientation="Horizontal">
+                    <Button
+                        Width="80"
+                        Margin="5,0,5,0"
+                        cal:Message.Attach="[Event Click]=[Action btnReset_Click]"
+                        Content="Cập nhật"
+                        FontWeight="Bold"
+                        Visibility="{Binding IsUpdate, Mode=OneWay, Converter={StaticResource BooleanToNotVisibility}}" />
+                    <Button
+                        x:Name="SaveTreatmentProcessCmd"
+                        Width="80"
+                        Margin="5,0,5,0"
+                        cal:Message.Attach="[Event Click]=[Action btnSave_Click]"
+                        Content="Lưu"
+                        FontWeight="Bold" />
+                    <Button
+                        Width="80"
+                        Margin="5,0,5,0"
+                        cal:Message.Attach="[Event Click]=[Action btnPrint_Click]"
+                        Content="{Binding G2521_G1_XemIn, Source={StaticResource eHCMSResources}}"
+                        FontWeight="Bold"
+                        Visibility="Collapsed" />
+                    <Button
+                        Width="80"
+                        Margin="5,0,5,0"
+                        cal:Message.Attach="[Event Click]=[Action btnCancel_Click]"
+                        Content="{Binding K1305_G1_BoQua, Source={StaticResource eHCMSResources}}"
+                        FontWeight="Bold"
+                        Visibility="{Binding IsUpdate, Mode=OneWay, Converter={StaticResource BooleanToVisibility}}" />
+                </StackPanel>
+            </Grid>
+            <AxControls:AxDataGridEx
+                Name="grdCommonRecord"
+                Grid.Row="3"
+                Grid.ColumnSpan="3"
+                Margin="0,10,0,0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                AutoGenerateColumns="False"
+                CanUserAddRows="False"
+                CanUserReorderColumns="True"
+                CanUserResizeColumns="True"
+                ColumnHeaderStyle="{StaticResource MainFrame.DataGridColumnHeaderStyle}"
+                HeadersVisibility="All"
+                IsReadOnly="True"
+                ItemsSource="{Binding CurrentTreatmentProcessList, Mode=TwoWay}"
+                RowStyle="{StaticResource MainFrame.DataGridRowStyle.Normal}"
+                ScrollViewer.VerticalScrollBarVisibility="Auto"
+                Style="{StaticResource MainFrame.DataGridStyle}">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn x:Name="colTemplatePrint" Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    x:Name="hplPreview"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    cal:Message.Attach="[Event Click]=[Action btnPrint_Click($datacontext)]"
+                                    Style="{StaticResource MainFrame.HyperlinkButton.01}"
+                                    ToolTipService.ToolTip="{Binding G2521_G1_XemIn, Source={StaticResource eHCMSResources}}">
+                                    <Button.Content>
+                                        <Image
+                                            Width="15"
+                                            Height="15"
+                                            Opacity="1"
+                                            Source="/aEMR.CommonViews;component/Assets/Images/print-icon.png" />
+                                    </Button.Content>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="colTemplate" Header="">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button
+                                    x:Name="hplEdit"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    cal:Message.Attach="[Event Click]=[Action hplEdit_Click($datacontext)]"
+                                    Style="{StaticResource MainFrame.HyperlinkButton.01}"
+                                    ToolTipService.ToolTip="{Binding T1484_G1_HChinh, Source={StaticResource eHCMSResources}}">
+                                    <Button.Content>
+                                        <Image
+                                            Width="15"
+                                            Height="15"
+                                            Opacity="1"
+                                            Source="/aEMR.CommonViews;component/Assets/Images/edit-icon.png" />
+                                    </Button.Content>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn
+                        MinWidth="120"
+                        Binding="{Binding FromDate, Mode=OneWay, StringFormat='dd/MM/yyyy HH:mm:ss'}"
+                        ElementStyle="{StaticResource MainFrame.TextBlockCenterAlign}"
+                        Header="Từ ngày" />
+                    <DataGridTextColumn
+                        MinWidth="120"
+                        Binding="{Binding ToDate, Mode=OneWay, StringFormat='dd/MM/yyyy HH:mm:ss'}"
+                        ElementStyle="{StaticResource MainFrame.TextBlockCenterAlign}"
+                        Header="Đến ngày" />
+                    <!--<DataGridTextColumn
+                        MinWidth="200"
+                        Binding="{Binding ToDate, Mode=OneWay}"
+                        Header="Người tạo" />-->
+                </DataGrid.Columns>
+            </AxControls:AxDataGridEx>
+        </Grid>
+    </ScrollViewer>
+</UserControl>
